@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💎 VAULT.LOG | Personal Financial Intelligence
 
-## Getting Started
+[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
+[![Google Apps Script](https://img.shields.io/badge/Google%20Apps%20Script-4285F4?style=for-the-badge&logo=google-apps-script&logoColor=white)](https://developers.google.com/apps-script)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
 
-First, run the development server:
+> **A premium, high-performance financial dashboard that bridges the gap between Google Sheets and Modern Web UI.**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## ⚡ Overview
+
+**Vault.log** is more than just a finance tracker; it is a custom-engineered **Financial Staging Environment**. Designed with a **Software QA mindset**, it transforms raw Google Sheets data into a high-fidelity, interactive dashboard.
+
+Built specifically for tracking a **24-month savings journey** (Project: Capital Pulse), this tool ensures data integrity, real-time metric visualization, and fiscal intelligence.
+
+### 🛠 Core Tech Stack
+
+- **Frontend:** Next.js (App Router) + Tailwind CSS
+- **Backend:** Google Apps Script (REST API)
+- **Database:** Google Sheets (Dynamic Engine)
+- **Deployment:** Vercel
+
+---
+
+## 🚀 Key Features
+
+- **📡 Real-Time Data Handshake:** Instant synchronization between Spreadsheet entries and the Web UI.
+- **🧠 Financial Intelligence Banner:** Dynamic status alerts (Critical, Excellent, On Track) based on automated savings-rate logic.
+- **📅 Weekly Activity Tracker:** A GitHub-style heat map visualizing transaction density and daily flow.
+- **💼 Multi-Account Monitoring:** High-level overview of Liquid Cash, Fixed Deposits, DPS, and Net Worth.
+- **🌗 Minimalist Dark Aesthetic:** Optimized for high-end workspace environments (MacBook Pro / Dual Dell Setup).
+
+---
+
+## 🏗 System Architecture
+
+```mermaid
+graph LR
+A[Google Sheets] -- JSON API --> B[Google Apps Script]
+B -- Fetch Handshake --> C[Next.js Dashboard]
+C -- Vercel Deployment --> D[Live Global URL]
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Installation & Setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Clone the repository
 
-## Learn More
+```bash
+git clone [https://github.com/your-username/jubu-finance.git](https://github.com/your-username/jubu-finance.git)
+```
 
-To learn more about Next.js, take a look at the following resources:
+2. Install dependencies
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm install
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. Configure API
+   `Update the API_URL in app/page.tsx with your Google Apps Script Deployment URL.`
+4. Run local environments
 
-## Deploy on Vercel
+```
+npm run dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 👔 Let’s Build Your Vault
+
+While this specific instance is built for my personal **"Capital Pulse"** collective, I specialize in building **Custom Data Bridges**.
+
+> **Are you looking for a similar automated dashboard?** > I can transform your complex Google Sheets or Excel data into a professional, mobile-responsive web dashboard tailored to your needs.
+
+### What I Offer:
+
+- 🚀 **Automation:** Stop looking at boring rows; start looking at actionable insights.
+- 🧠 **Custom Logic:** Tailored alerts, predictive graphs, and complex tracking metrics.
+- 🎨 **Modern Design:** Minimalist UI built for clarity, precision, and speed.
+- 📱 **Mobile First:** Access your data anywhere, optimized for all devices.
+
+---
+
+## About the QA
+
+# Jubair Rahman
+
+**Software Engineer (QA) | HealthTech | Passionate about testing, tools, and UI quality.**
+
+[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jubair-rahman/) [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/JubairRahman) [![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/8801645763353)
+
+---
+
+_Generated with precision. Quality Assured._
