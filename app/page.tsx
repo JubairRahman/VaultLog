@@ -39,15 +39,14 @@ export default function FinanceDashboard() {
       {/* HEADER & FILTER */}
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-white tracking-tight">
-            Vault.log
+          <h1 className="text-3xl font-black text-white tracking-tighter font-mono">
+            VAULT<span className="text-emerald-500">.</span>LOG
           </h1>
-          <h4 className="text-sm text-slate-500 italic -mt-1">
-            Jubu's Fiscal Intel.
+          <h4 className="text-[10px] text-slate-500 uppercase tracking-[0.3em] font-bold mt-1">
+            Jubu's Fiscal Intel
           </h4>
-          {/* SECONDARY ALERT (A2) - Subtitle Style */}
           {data?.secondaryAlert && (
-            <p className="text-sm text-amber-500/80 italic mt-1 flex items-center gap-2">
+            <p className="text-sm text-amber-500/80 italic mt-2 flex items-center gap-2">
               <span className="inline-block w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
               {data.secondaryAlert}
             </p>
@@ -74,64 +73,57 @@ export default function FinanceDashboard() {
         <div
           className={`max-w-7xl mx-auto space-y-6 transition-opacity duration-300 ${loading ? "opacity-50" : "opacity-100"}`}
         >
-          {/* PRIMARY ALERT (H1) - Dynamic Color Banner */}
+          {/* PRIMARY ALERT (H1) */}
           {data?.primaryAlert && data.primaryAlert !== "" && (
-            <div className="max-w-7xl mx-auto mb-6 px-6">
+            <div
+              className={`border rounded-3xl p-5 flex items-center gap-4 shadow-xl transition-colors duration-500
+              ${
+                data.primaryAlert.includes("CRITICAL")
+                  ? "bg-rose-500/10 border-rose-500/20"
+                  : data.primaryAlert.includes("EXCELLENT")
+                    ? "bg-cyan-500/10 border-cyan-500/20"
+                    : "bg-emerald-500/10 border-emerald-500/20"
+              }`}
+            >
               <div
-                className={`
-      border rounded-3xl p-5 flex items-center gap-4 shadow-xl transition-colors duration-500
-      ${
-        data.primaryAlert.includes("CRITICAL")
-          ? "bg-rose-500/10 border-rose-500/20"
-          : data.primaryAlert.includes("EXCELLENT")
-            ? "bg-cyan-500/10 border-cyan-500/20"
-            : "bg-emerald-500/10 border-emerald-500/20"
-      }
-    `}
+                className={`w-10 h-10 rounded-xl flex items-center justify-center border flex-shrink-0
+                ${
+                  data.primaryAlert.includes("CRITICAL")
+                    ? "bg-rose-500/20 border-rose-500/30 text-rose-400"
+                    : data.primaryAlert.includes("EXCELLENT")
+                      ? "bg-cyan-500/20 border-cyan-500/30 text-cyan-400"
+                      : "bg-emerald-500/20 border-emerald-500/30 text-emerald-400"
+                }`}
               >
-                <div
-                  className={`
-        w-10 h-10 rounded-xl flex items-center justify-center border flex-shrink-0
-        ${
-          data.primaryAlert.includes("CRITICAL")
-            ? "bg-rose-500/20 border-rose-500/30 text-rose-400"
-            : data.primaryAlert.includes("EXCELLENT")
-              ? "bg-cyan-500/20 border-cyan-500/30 text-cyan-400"
-              : "bg-emerald-500/20 border-emerald-500/30 text-emerald-400"
-        }
-      `}
+                <span className="font-black text-lg">
+                  {data.primaryAlert.includes("⚠️")
+                    ? "!"
+                    : data.primaryAlert.includes("💎")
+                      ? "✦"
+                      : "✓"}
+                </span>
+              </div>
+              <div>
+                <p
+                  className={`text-[10px] font-black uppercase tracking-widest mb-0.5
+                  ${
+                    data.primaryAlert.includes("CRITICAL")
+                      ? "text-rose-500/60"
+                      : data.primaryAlert.includes("EXCELLENT")
+                        ? "text-cyan-500/60"
+                        : "text-emerald-500/60"
+                  }`}
                 >
-                  <span className="font-black text-lg">
-                    {data.primaryAlert.includes("⚠️")
-                      ? "!"
-                      : data.primaryAlert.includes("💎")
-                        ? "✦"
-                        : "✓"}
-                  </span>
-                </div>
-                <div>
-                  <p
-                    className={`text-[10px] font-black uppercase tracking-widest mb-0.5
-          ${
-            data.primaryAlert.includes("CRITICAL")
-              ? "text-rose-500/60"
-              : data.primaryAlert.includes("EXCELLENT")
-                ? "text-cyan-500/60"
-                : "text-emerald-500/60"
-          }
-        `}
-                  >
-                    Financial Intelligence
-                  </p>
-                  <p className="text-white font-bold leading-tight text-lg">
-                    {data.primaryAlert}
-                  </p>
-                </div>
+                  Financial Intelligence
+                </p>
+                <p className="text-white font-bold leading-tight text-lg">
+                  {data.primaryAlert}
+                </p>
               </div>
             </div>
           )}
 
-          {/* TOP METRICS (Summary Cards) */}
+          {/* TOP METRICS */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <SummaryCard
               title="Total Income"
@@ -163,22 +155,66 @@ export default function FinanceDashboard() {
             <SubMetric title="Fixed Deposits" val={data.subMetrics.fixed} />
             <SubMetric title="DPS" val={data.subMetrics.dps} />
           </div>
+          {/* STATUS SUMMARY ALERT (A14) */}
+          {data?.statusSummary && (
+            <div className="lg:col-span-3 mb-2">
+              <div className="bg-slate-900/40 border border-slate-800 p-4 rounded-2xl flex items-start gap-3">
+                <div className="mt-1 w-2 h-2 rounded-full bg-sky-500 shadow-[0_0_8px_rgba(14,165,233,0.5)] flex-shrink-0 animate-pulse"></div>
+                <p className="text-sm text-slate-400 leading-relaxed font-medium">
+                  {data.statusSummary}
+                </p>
+              </div>
+            </div>
+          )}
 
+          {/* TRACKER & ACCOUNTS SECTION STARTS HERE */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {/* The rest of your Weekly Tracker code... */}
+          </div>
           {/* TRACKER & ACCOUNTS */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <div className="lg:col-span-2 bg-[#0F172A] p-6 rounded-3xl border border-slate-800">
-              <h3 className="text-xs font-bold text-slate-500 uppercase mb-4 tracking-widest">
-                Weekly Tracker
+            <div className="lg:col-span-2 bg-[#0F172A] p-6 rounded-3xl border border-slate-800 shadow-inner">
+              <h3 className="text-xs font-bold text-slate-500 uppercase mb-6 tracking-widest text-center md:text-left">
+                Weekly Activity Tracker
               </h3>
-              <div className="grid grid-cols-7 gap-2">
-                {data.weeklyTracker.flat().map((val: any, i: number) => (
+
+              {/* DAY LABELS (D17:J17) */}
+              <div className="grid grid-cols-7 gap-2 mb-3">
+                {data.trackerLabels?.map((day: string, i: number) => (
                   <div
                     key={i}
-                    className={`h-12 rounded-lg border flex items-center justify-center text-[10px] font-bold ${val > 0 ? "bg-emerald-500/20 text-emerald-400 border-emerald-500/30" : "bg-slate-900 text-slate-700 border-slate-800"}`}
+                    className="text-center text-[9px] font-black text-slate-600 uppercase tracking-tighter"
                   >
-                    {val || ""}
+                    {day}
                   </div>
                 ))}
+              </div>
+
+              {/* DATA GRID (D18:J21) - Renders every single cell */}
+              <div className="grid grid-cols-7 gap-2">
+                {data.weeklyTracker?.flat().map((val: any, i: number) => {
+                  // Logic: A cell is "Active" only if it's a number greater than 0
+                  const isActive =
+                    val !== "" &&
+                    val !== null &&
+                    !isNaN(val) &&
+                    Number(val) > 0;
+
+                  return (
+                    <div
+                      key={i}
+                      className={`h-12 rounded-xl border transition-all duration-300 flex items-center justify-center text-[10px] font-bold
+            ${
+              isActive
+                ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20 shadow-[0_0_15px_rgba(16,185,129,0.05)]"
+                : "bg-slate-900/40 border-slate-800/40 opacity-40"
+            }`}
+                    >
+                      {/* Show the value if it exists, otherwise leave the box empty */}
+                      {val !== "" && val !== null ? val : ""}
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
@@ -284,7 +320,7 @@ function TableList({ title, rows, color, isExp, isTrans }: any) {
               No Records Found
             </p>
             <p className="text-[9px] text-slate-700 mt-1 italic">
-              Check sheet names are 'Income', 'Expense', and 'Transfer'
+              Check sheet names
             </p>
           </div>
         )}
